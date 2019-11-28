@@ -1,0 +1,42 @@
+PELO PIPENV
+
+cd até o projeto
+
+pipenv install flask flask-sqlalchemy
+
+#pipenv shell
+
+export FLASK_APP=api e export FLASK_DEBUG=1
+
+flask run
+
+Com o servidor rodando, teste os endpoints: add_filme (post) e filmes (get)
+
+A base de dados deve ser excluída e adicionada novamente caso haja alguma inconsistência
+
+
+Abra outra janela de terminal e rode o node
+No terminal -->cd até a pasta do frontend --> npm install node-modules
+npm i semantic-ui-react semantic-ui-css
+npm start
+
+
+
+
+
+
+PELO VIRTUAL ENV
+
+cd até o projeto 
+
+pip install virtualenv (só uma vez)
+
+virtualenv  venv -p python3 (só uma vez)
+
+source venv/bin/activate
+
+pip install flask flask-sqlalchemy
+
+export FLASK_APP=api e export FLASK_DEBUG=1
+
+flask run

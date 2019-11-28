@@ -1,0 +1,14 @@
+Albert Einstein
+100,Alemanha,1879,EUA,1955
+Isaac Newton
+200,Reino Unido,1643,Reino Unido,1727
+Galileo Galilei
+300,Italia,1564,Italia,1642
+Marie Curie
+400,Polonia,1867,Polonia,1934
+Erwin Schrodinger
+500,Austia,1887,Austria,1961
+Michael Faraday
+600,Reino Unido,1791,Reino Unido,1867
+Max Planck
+700,Alemanha,1858,Alemanha,1947

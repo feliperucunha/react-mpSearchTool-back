@@ -1,8 +1,6 @@
 from flask import Blueprint, jsonify, request
 from . import db
 from .models import Movie
-#from .busca import pesquisar_registro
-from .teste import pesquisar
 import os
 import re
 import json
@@ -21,9 +19,11 @@ def pesquisar_registro(txt):
                     resultado = re.search(txt.lower(), str(linha.lower()))
                    
                     if resultado:
-                        res = 'http://ioepa.com.br/arquivos/'+arquivo[0:4]+'/'+arquivo[:-4]+'.pdf'+arquivo[:-4]+'.pdf'
-                        trecho = str(linha)
-                        z.append(res+'/'+trecho)
+                        #res = 'http://ioepa.com.br/arquivos/'+arquivo[0:4]+'/'+arquivo[:-4]+'.pdf'+arquivo[:-4]+'.pdf'
+                        caminho = 'http://ioepa.com.br/arquivos/'+arquivo[0:4]+'/'+arquivo[:-4]+'.pdf'
+                        arquivo = arquivo[:-4]+'.pdf'
+                        linha_localizada = str(linha)
+                        z.append([linha_localizada, caminho, arquivo]) 
 
             a.close()
       
@@ -31,6 +31,7 @@ def pesquisar_registro(txt):
 
 
 main = Blueprint('main', __name__)
+
 
 @main.route('/add_movie', methods=['POST'])
 def add_movie():
@@ -58,19 +59,8 @@ def movies():
 def search():
     return pesquisar('fisicos.txt', 'Einstein'), 200
 
-
-#@main.route('/pesquisar', methods=['POST'])
-#def pesquisar():
- #   data = request.json #usar data na função e retornar a busca em json
- #   print(data)
- #   return jsonify(data), 200 #trocar request.json apra request.form caso não dê certo. tem também o request.data
-
-
 @main.route('/pesquisar', methods=['POST'])
 def pesquisar():
-    #data = request.json
-    #pesq = pesquisar_registro(data)
-    #print(pesquisar_registro(data))
     data = request.json
     search_input = str(data["pesquisa"])
     print(search_input)
@@ -79,7 +69,6 @@ def pesquisar():
     print (dado)
     response = {"res": dado}
     return response
-
 
 @main.route('/pesquisarTeste', methods=['POST'])
 def somar():
